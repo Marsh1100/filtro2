@@ -18,7 +18,41 @@
     <header>
         <h1>Ciudades</h1>
     </header>
+<!--El sistema debe permitir elegir la apariencia de fondo o de tamaño de letra y recordar esta preferencia para la próxima vez que ingrese.-->
+<!--El sistema debe permitir conocer el estado atmosférico en tiempo real, de la ciudad que se elija, accediendo a la API externa https://home.openweathermap.org , para lo cual se manejan las coordenadas geográficas de la ciudad.-->    
+    <nav>
+        <nav>
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                    <a id="inicio" class="nav-link" style="color: rgb(6, 4, 97);">Inicio</a>
+                </li>
 
+                <!--Tema del navegador-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(6, 4, 97);" >
+                      Apariencia
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a id="claro" class="dropdown-item" href="#">Claro</a></li>
+                      <li><a id="oscuro" class="dropdown-item" href="#">Oscuro</a></li>
+                    </ul>
+                  </li>
+                <!--Letra de texto-->
+                <li id="nav-letra" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(6, 4, 97);" >
+                      Tamaño de fuente
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a id="big"  class="dropdown-item" href="#">Pequeña</a></li>
+                      <li><a id="normal" class="dropdown-item" href="#">Mediana</a></li>
+                      <li><a id="small" class="dropdown-item" href="#">Grande</a></li>
+                    </ul>
+                  </li>
+
+                
+            </ul>
+        </nav>
+    </nav>
     <main>
         <section>
             <section class="sectionDep hidden" id="departamento">
@@ -28,7 +62,7 @@
                     <form id="form-add-dep" class="formDep" method="POST">
                         <input id="input-dep" class="form-control form-control-sm" type="text" placeholder="Nuevo departamento">
     
-                        <button id="btnDep" type="submit" class="btn btn-success" for="form-add-dep">Guardar</button>
+                        <button type="submit" class="btnDep btn btn-success" for="form-add-dep">Guardar</button>
                     </form>
                 </div>
     
@@ -36,9 +70,8 @@
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">N°</th>
-                            <th scope="col">departamento</th>
+                            <th scope="col">Departamento</th>
                             <th scope="col">Agregar ciudad</th>
-                            <th scope="col">Ciudades</th>
                             <th scope="col">Ver ciudades</th>
                             <th scope="col">Opciones</th>
                         </tr>
@@ -63,9 +96,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    
                     <form id="form-add-ciudad" class="formCiudad" method="POST">
-                        <label for="id-ciudad">ID de la Ruta:</label>
-                        <input id="id-ruta" class="form-control form-control-sm" type="text"
+                        <label for="id-ciudad">ID del departamento:</label>
+                        <input id="id-dep" class="form-control form-control-sm" type="text"
                             aria-label=".form-control-sm example" disabled>
 
                         <input id="nombre-ciudad" class="form-control form-control-sm" type="text"
@@ -73,9 +107,18 @@
 
                         <input id="url-ciudad" class="form-control form-control-sm" type="text"
                             placeholder="URL de imagen" aria-label=".form-control-sm example">
+                        
+                        <div id="coordenadas">
+                            <input id="latitud" class="form-control form-control-sm" type="text"
+                            placeholder="Lat." aria-label=".form-control-sm example">
+                            <input id="longitud" class="form-control form-control-sm" type="text"
+                            placeholder="Long." aria-label=".form-control-sm example">
+                        </div>
+
                         <button type="submit" for="form-add-ciudad" class="btn btn-success"
                             data-bs-dismiss="modal">Guardar</button>
                     </form>
+
                 </div>
 
             </div>

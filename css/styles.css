@@ -4,3 +4,92 @@
 
     box-sizing: border-box;
 }
+
+nav{
+    background-color: rgb(178, 199, 227);
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+
+/*Formulario departamento*/
+#agregar-dep{
+    display: flex;
+    justify-content: center;
+}
+.formDep{
+    width: 40%;
+    display:flex ;
+    gap: 25px;
+}
+/*Tabla*/
+.addDep, .bi-eye{
+    background-color: transparent;
+    border: none;
+}
+
+
+/*Formulario ciudad*/
+.formCiudad{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#coordenadas{
+    display: flex;
+}
+
+/*Ciudades*/
+.cardCiudades{
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    justify-content: center;
+    gap: 25px
+
+}
+
+
+@media (max-width: 1285px) {
+    /* … */
+    .cardCiudades{
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        justify-content:center;
+        padding: 25px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 975px) {
+    /* … */
+    .cardCiudades{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 25px;
+        gap: 20px;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}

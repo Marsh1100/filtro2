@@ -1,6 +1,10 @@
+//API ESTADO ATMÓSFERICO
+const appId='961ba900fa9486fe75a948a5579b0891';
+//const urlClima = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appId}`;
 
+//API JSON-SERVE
 const urlDep = "http://localhost:3000/Departamento";
-const urlPuntos = "http://localhost:3000/Ciudades";
+const urlCiudades = "http://localhost:3000/Ciudades";
 
 //Obtener departamentos de la API - (GET)
 export const getDep = async () => {
@@ -13,14 +17,14 @@ export const getDep = async () => {
     }
 }
 
-/*
-// Insertar una nueva Ruta en la REST API - Método POST
-export const newRuta = async (ruta) => {
-    console.log(ruta);
+
+// Insertar una nueva Departamento en la REST API - Método POST
+export const newDep = async (dep) => {
+    console.log(dep);
     try{
-       await fetch(urlRutas,{
+       await fetch(urlDep,{
             method: 'POST',
-            body: JSON.stringify(ruta), // Se envia lo que va a contener
+            body: JSON.stringify(dep), // Se envia lo que va a contener
             headers:{
                 'Content-Type': 'application/json'
             }
@@ -32,10 +36,10 @@ export const newRuta = async (ruta) => {
     }
 }
 
-// Eliminar una Ruta en la REST API - Método delete
-export const deleteRuta = async (idRuta) => {
+// Eliminar una Departamento en la REST API - Método delete
+export const deleteDep = async (idDep) => {
     try{
-        await fetch(`${urlRutas}/${idRuta}`,{
+        await fetch(`${urlDep}/${idDep}`,{
             method: 'DELETE'
         })
     }catch(error){
@@ -43,10 +47,10 @@ export const deleteRuta = async (idRuta) => {
     }
 }
 
-//Editar una Ruta en la RESP API - Método patch
-export const editRuta = async (edicion, idRuta) => {
+//Editar una Departamento en la RESP API - Método patch
+export const editDep = async (edicion, idDep) => {
     try {
-        await fetch(`${urlRutas}/${idRuta}`,{
+        await fetch(`${urlDep}/${idDep}`,{
             method: 'PATCH',
             body: JSON.stringify(edicion),
             headers: {'Content-Type': 'application/json'}
@@ -56,31 +60,19 @@ export const editRuta = async (edicion, idRuta) => {
     }
 }
 
-//Editar cantidad de puntos que tiene una ruta en la RESP API - Método patch
-export const editPuntos = async (idRuta,incrementarPunto) => {
 
-    try {
-        await fetch(`${urlRutas}/${idRuta}`,{
-            method: 'PATCH',
-            body: JSON.stringify(incrementarPunto),
-            headers: {'Content-Type': 'application/json'}
-        })
-    } catch (error) {
-        console.log(error);
-    }
-}
 ////////////////////////////////////////////////////////////
-//Obtener puntos de la API - (GET) filter según idRuta
-export const getPuntosFilter = async (idRuta) => {
+//Obtener ciudades de la API - (GET) filter según idDep
+export const getCiudadesFilter = async (idDep) => {
     try {
-        const result = await fetch(`${urlPuntos}?rutaId=${idRuta}`);
-        const puntos = await result.json();
-        return puntos
+        const result = await fetch(`${urlCiudades}?departamentoId=${idDep}`);
+        const ciudades = await result.json();
+        return ciudades
     }catch(error){
         console.log(error);
     }
 }
-
+/*
 // Insertar un nuevo Punto en la REST API - Método POST
 export const newPunto = async (punto) => {
     try{
