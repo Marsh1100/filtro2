@@ -72,13 +72,13 @@ export const getCiudadesFilter = async (idDep) => {
         console.log(error);
     }
 }
-/*
-// Insertar un nuevo Punto en la REST API - Método POST
-export const newPunto = async (punto) => {
+
+// Insertar un nueva Ciudad en la REST API - Método POST
+export const newCiudad = async (ciudad) => {
     try{
-       await fetch(urlPuntos,{
+       await fetch(urlCiudades,{
             method: 'POST',
-            body: JSON.stringify(punto), // Se envia lo que va a contener
+            body: JSON.stringify(ciudad), // Se envia lo que va a contener
             headers:{
                 'Content-Type': 'application/json'
             }
@@ -90,18 +90,12 @@ export const newPunto = async (punto) => {
     }
 }
 
-export const deletePunto = async (idPunto,idRuta,editarPuntos) => {
+export const deleteCiudad = async (idCiudad) => {
     try{
-        await fetch(`${urlPuntos}/${idPunto}`,{
+        await fetch(`${urlCiudades}/${idCiudad}`,{
             method: 'DELETE'
-        })
-
-        await fetch(`${urlRutas}/${idRuta}`,{
-            method: 'PATCH',
-            body: JSON.stringify(editarPuntos),
-            headers: {'Content-Type': 'application/json'}
         })
     }catch(error){
         console.log(error);
     }
-}*/
+}

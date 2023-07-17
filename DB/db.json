@@ -27,7 +27,7 @@
       "nomCiudad": "Bucaramanga",
       "departamentoId": 1,
       "imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
-      "coordenadas": {
+      "coorddepartamentoIdenadas": {
         "lat": 4,
         "lon": 72
       }
@@ -70,6 +70,16 @@
       "coordenadas": {
         "lat": 4,
         "lon": 72
+      }
+    },
+    {
+      "id": 1689633734501,
+      "nomCiudad": "Cartagena",
+      "departamentoId": 1689627855508,
+      "imagen": "https://ca-times.brightspotcdn.com/dims4/default/c0610a9/2147483647/strip/true/crop/1515x1000+0+0/resize/1200x792!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fec%2F48%2F75fb9d684e1b9673520e911a8a3c%2Fun-destino-para-gozar-958578.JPG",
+      "coorddepartamentoIdenadas": {
+        "lat": {},
+        "lon": {}
       }
     }
   ]

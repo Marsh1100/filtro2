@@ -1,7 +1,7 @@
 //Importar peticiones 
-import {getDep,newDep,deleteDep,editDep,getCiudadesFilter} from "../apiConnection/API.js"
+import {getDep,newDep,deleteDep,editDep,getCiudadesFilter,newCiudad,deleteCiudad} from "../apiConnection/API.js"
 //Importar selectores del DOM
-import {$tablaDep,$inputDep,$btnDep, $formAddDep,$subTitle,$formAddCiudad, $modalTitle,$modalId,$modalNomCiudad,$modalImg,$modalLatitud,$modalLongitud} from "./selectores.js";
+import {$tablaDep,$inputDep,$btnDep, $formAddDep,$subTitle,$formAddCiudad, $modalTitle,$modalIdDep,$modalNomCiudad,$modalImg,$modalLatitud,$modalLongitud} from "./selectores.js";
 
 
 //1.FUNCIONES DEL CRUD DE DEPARTAMENTOS
@@ -87,7 +87,7 @@ async function renderCiudades(idDep){
                             <div class="card-body">
                             <p class="card-text"><b>${nomCiudad}</b></p>
                             <div>
-                                <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}</button>
+                                <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}" </button>
                             </div>
                             </div>
                         </div>`;
@@ -97,6 +97,25 @@ async function renderCiudades(idDep){
     
 }
 
+//2.2 Agregar Ciudad 
+export async function agregarCiudad(e){
+    e.preventDefault();
+    let id = Date.now();
+    let nomCiudad = $modalNomCiudad.value;
+    let departamentoId = Number($modalIdDep.value);
+    let imagen = $modalImg.value;
+    let coorddepartamentoIdenadas = {"lat": $modalLatitud, "lon": $modalLongitud}
+    //Objeto Ciudad
+    let nuevaCiudad = {
+        id,
+        nomCiudad,
+        departamentoId,
+        imagen,
+        coorddepartamentoIdenadas
+    }
+   await newCiudad(nuevaCiudad);
+
+}
 
 //AddEventListener de botones de la tabla
 
@@ -118,9 +137,10 @@ export async function seleccionTabla(e){
         formularioCiudad(idDep,posicion);
     }else if(clase.includes("bi-eye")){
         renderCiudades(idDep);
+    //2.3 DELETE Ciudad
     }else if(clase.includes("delete-ciudad")){
         let idCiudad = parseInt(e.target.id);
-        deleteCiudad(idCiudad,idDep,editarCiudad);  
+        deleteCiudad(idCiudad);  
     }
 }
 
@@ -141,7 +161,7 @@ export function editarDep(idDep,posicion){
 function formularioCiudad(idDep,posicion){
     const $tdTable = document.getElementsByTagName("td");
     $modalTitle.innerText = $tdTable[posicion].innerHTML;
-    $modalId.value = idDep;
+    $modalIdDep.value = idDep;
 }
 
 //0.4 Colapsar los puntos de las rutas

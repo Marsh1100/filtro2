@@ -21,7 +21,7 @@ export const $tablaDep = document.getElementById('lista-dep');
 export const $formAddCiudad = document.getElementById('form-add-ciudad'); 
 export const $modalTitle = document.querySelector('.modal-title');
 console.log($modalTitle)
-export const $modalId = document.getElementById('id-dep'); 
+export const $modalIdDep = document.getElementById('id-dep'); 
 export const $modalNomCiudad = document.getElementById('nombre-ciudad'); 
 export const $modalImg = document.getElementById('url-ciudad'); 
 export const $modalLatitud = document.getElementById('latitud'); 
