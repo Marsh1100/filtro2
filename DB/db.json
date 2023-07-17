@@ -1,0 +1,53 @@
+{
+    "Departamento":[
+        {
+            "id":1,
+            "nomDepartamento": "Santander"
+        },
+        {
+            "id":2,
+            "nomDepartamento": "Cundinamarca"
+        },
+        {
+            "id":3,
+            "nomDepartamento": "Cesar"
+        }
+    ],
+    "Ciudades":[
+        {
+            "id": 1,
+			"nomCiudad": "Bucaramanga",
+			"departamentoId": 1,
+			"imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
+			"coordenadas":{"lat":4, "lon":72}
+        },
+        {
+            "id": 2,
+			"nomCiudad": "Barrancabermeja",
+			"departamentoId": 1,
+			"imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
+			"coordenadas":{"lat":4, "lon":72}
+        },
+        {
+            "id": 3,
+			"nomCiudad": "Bogotá",
+			"departamentoId": 2,
+			"imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
+			"coordenadas":{"lat":4, "lon":72}
+        },
+        {
+            "id": 4,
+			"nomCiudad": "Cajicá",
+			"departamentoId": 2,
+			"imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
+			"coordenadas":{"lat":4, "lon":72}
+        },
+        {
+            "id": 5,
+			"nomCiudad": "Valledupar",
+			"departamentoId": 2,
+			"imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
+			"coordenadas":{"lat":4, "lon":72}
+        }
+    ]
+}
