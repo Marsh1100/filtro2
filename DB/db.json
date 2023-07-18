@@ -59,9 +59,9 @@
       "nomCiudad": "Barranquilla",
       "departamentoId": 1689642265053,
       "imagen": "https://www.upb.edu.co/es/imagenes/img-sobrelaciudadbucaramanga-cam-1464102319822.jpg",
-      "coorddepartamentoIdenadas": {
-        "lat": "85",
-        "lon": "74"
+      "coordenadas": {
+        "lat": 85,
+        "lon": 14
       }
     },
     {
@@ -69,9 +69,9 @@
       "nomCiudad": "Sabanalarga",
       "departamentoId": 1689642265053,
       "imagen": "https://www.upb.edu.co/es/imagenes/img-sobrelaciudadbucaramanga-cam-1464102319822.jpg",
-      "coorddepartamentoIdenadas": {
-        "lat": "85",
-        "lon": "45"
+      "coordenadas": {
+        "lat": 29,
+        "lon": 58
       }
     }
   ]

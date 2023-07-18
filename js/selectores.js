@@ -27,6 +27,12 @@ export const $modalLatitud = document.getElementById('latitud');
 export const $modalLongitud = document.getElementById('longitud'); 
 
 //Modal Clima
+export const $modalTitleC = document.querySelector('.modalTituloCiudad');
+
+export const $coordenadas = document.getElementById('coordenadas'); 
+export const $temp = document.getElementById('temp'); 
+export const $presion = document.getElementById('pressure'); 
+export const $humedad = document.getElementById('humidity'); 
 
 
 

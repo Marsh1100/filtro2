@@ -1,7 +1,7 @@
 //Importar peticiones 
-import {getDep,newDep,deleteDep,editDep,getCiudadesFilter,newCiudad,deleteCiudad} from "../apiConnection/API.js"
+import {getDep,newDep,deleteDep,editDep,getCiudadesFilter,newCiudad,deleteCiudad,displayData} from "../apiConnection/API.js"
 //Importar selectores del DOM
-import {$tablaDep,$inputDep,$btnDep, $formAddDep,$subTitle,$formAddCiudad, $modalTitle,$modalIdDep,$modalNomCiudad,$modalImg,$modalLatitud,$modalLongitud} from "./selectores.js";
+import {$tablaDep,$inputDep,$btnDep, $formAddDep,$subTitle,$formAddCiudad, $modalTitle,$modalIdDep,$modalNomCiudad,$modalImg,$modalLatitud,$modalLongitud } from "./selectores.js";
 
 
 //1.FUNCIONES DEL CRUD DE DEPARTAMENTOS
@@ -81,16 +81,16 @@ async function renderCiudades(idDep,dep){
 
     document.getElementById(`d${idDep}`).textContent = dep;
     listaCiudadesFilter.forEach(ciudad=>{
-        const {id,nomCiudad, imagen} =ciudad;
-         
-    let html =   `
+        const {id,nomCiudad, imagen,coordenadas} =ciudad;
+        console.log(coordenadas.lat)
+         let html =   `
                     <div class="card" style="width: 18rem;">
                         <img src="${imagen}" class="card-img-top" alt="imagen.jpg">
                         <div class="card-body">
                         <p class="card-text"><b>${nomCiudad}</b></p>
                         <div class="btnsCiudad">
                             
-                            <button type="button" data-ciudad="${id}"class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalClima">Clima</button>
+                            <button type="button" data-lat="${coordenadas}" data-lon="${coordenadas.lon}" class="btn btn-warning clima" data-bs-toggle="modal" data-bs-target="#modalClima">Clima</button>
 
                             <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}" </button>
                         </div>
@@ -115,7 +115,7 @@ export async function agregarCiudad(e){
         nomCiudad,
         departamentoId,
         imagen,
-        coorddepartamentoIdenadas: {"lat": $modalLatitud.value, "lon": $modalLongitud.value}
+        coordenadas: {"lat": Number($modalLatitud.value), "lon": Number($modalLongitud.value)}
     }
    await newCiudad(nuevaCiudad);
 
@@ -154,6 +154,11 @@ export async function seleccionTabla(e){
     }else if(clase.includes("delete-ciudad")){
         let idCiudad = parseInt(e.target.id);
         deleteCiudad(idCiudad);  
+    }else if(clase.includes("clima")){
+        let lat = parseInt(e.target.dataset.lat)
+        let lon = parseInt(e.target.dataset.lon)
+
+       //let data = displayData(lat,74.08175)
     }
 }
 
@@ -186,3 +191,30 @@ function colapsarPuntos(){
 }
 
 
+//0.5 CLima
+
+function visualizar(data){
+    console.log(data.lenght);
+  
+    //ICON
+    let img = `<img src=" https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" ></img>`
+    $icon.innerHTML = img;
+    //Coordenadas
+    let coord = `Latitud: ${data.coord.lat}
+                 Longitud: ${data.coord.lon}`;
+    $coordenadas.innerHTML= coord;
+   
+    //Temperatura
+    let dataTem = (data.main.temp-273.15).toFixed(1);
+    let temp = `<p>${dataTem} ºC</p>`;
+    $temp.innerHTML=temp;
+  
+    //Presión
+    let pressure = `<p>${(data.main.pressure/1000).toFixed(2)} atm</p>`;
+    $pressure.innerHTML=pressure;
+  
+    //Humedad
+    let humidity = `<p>${data.main.humidity} %</p>`;
+    $humidity.innerHTML=humidity;
+  
+  } 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,43 +16,46 @@
 
     <title>Ciudades</title>
 </head>
+
 <body>
     <header>
         <div>
             <p id="titulo" class="h2">Ciudades</p>
         </div>
     </header>
-   
+
     <nav>
         <nav>
-            <ul id="nav-bar" class="nav nav-underline" >
+            <ul id="nav-bar" class="nav nav-underline">
                 <li class="nav-item">
                     <a id="inicio" class="nav-link" href="#nuevo-dep" style="color: rgb(6, 4, 97);">Inicio</a>
                 </li>
 
                 <!--Tema del navegador-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(6, 4, 97);" >
-                      Apariencia
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="color: rgb(6, 4, 97);">
+                        Apariencia
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a id="claro" class="dropdown-item" href="#">Claro</a></li>
-                      <li><a id="oscuro" class="dropdown-item" href="#">Oscuro</a></li>
+                        <li><a id="claro" class="dropdown-item" href="#">Claro</a></li>
+                        <li><a id="oscuro" class="dropdown-item" href="#">Oscuro</a></li>
                     </ul>
-                  </li>
+                </li>
                 <!--Letra de texto-->
                 <li id="nav-letra" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(6, 4, 97);" >
-                      Tamaño de fuente
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="color: rgb(6, 4, 97);">
+                        Tamaño de fuente
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a id="big"  class="dropdown-item" href="#">Pequeña</a></li>
-                      <li><a id="normal" class="dropdown-item" href="#">Mediana</a></li>
-                      <li><a id="small" class="dropdown-item" href="#">Grande</a></li>
+                        <li><a id="big" class="dropdown-item" href="#">Pequeña</a></li>
+                        <li><a id="normal" class="dropdown-item" href="#">Mediana</a></li>
+                        <li><a id="small" class="dropdown-item" href="#">Grande</a></li>
                     </ul>
-                  </li>
+                </li>
 
-                
+
             </ul>
         </nav>
     </nav>
@@ -59,15 +63,16 @@
         <section>
             <section class="sectionDep hidden" id="departamento">
                 <p class="h3" id="nuevo-dep">Agregar nuevo departamento</p>
-                
-                <div  id="agregar-dep">
+
+                <div id="agregar-dep">
                     <form id="form-add-dep" class="formDep" method="POST">
-                        <input id="input-dep" class="form-control form-control-sm" type="text" placeholder="Nuevo departamento">
-    
+                        <input id="input-dep" class="form-control form-control-sm" type="text"
+                            placeholder="Nuevo departamento">
+
                         <button type="submit" class="btnDep btn btn-success" for="form-add-dep">Guardar</button>
                     </form>
                 </div>
-    
+
                 <table class="table  text-center">
                     <thead class="table-dark">
                         <tr>
@@ -82,12 +87,12 @@
                         <!--Se agregan los dep dinámicamente-->
                     </tbody>
                 </table>
-    
+
             </section>
-    
+
         </section>
     </main>
-    
+
     <!-- Modal Departamento-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -98,7 +103,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <form id="form-add-ciudad" class="formCiudad" method="POST">
                         <label for="id-ciudad">ID del departamento:</label>
                         <input id="id-dep" class="form-control form-control-sm" type="text"
@@ -109,12 +114,12 @@
 
                         <input id="url-ciudad" class="form-control form-control-sm" type="text"
                             placeholder="URL de imagen" aria-label=".form-control-sm example">
-                        
+
                         <div id="coordenadas">
-                            <input id="latitud" class="form-control form-control-sm" type="number"
-                            placeholder="Lat." aria-label=".form-control-sm example">
-                            <input id="longitud" class="form-control form-control-sm" type="number"
-                            placeholder="Long." aria-label=".form-control-sm example">
+                            <input id="latitud" class="form-control form-control-sm" type="number" placeholder="Lat."
+                                aria-label=".form-control-sm example">
+                            <input id="longitud" class="form-control form-control-sm" type="number" placeholder="Long."
+                                aria-label=".form-control-sm example">
                         </div>
 
                         <button type="submit" for="form-add-ciudad" class="btn btn-success"
@@ -128,31 +133,56 @@
     </div>
 
 
-     <!-- Modal Clima-->
-     <div class="modal fade" id="modalClima" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-     <div class="modal-dialog">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h1 class="modalTituloCiudad modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
+    <!-- Modal Clima-->
+    <div class="modal fade" id="modalClima" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modalTituloCiudad modal-title fs-5" id="staticBackdropLabel">Clima</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-             </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" style="display: flex;">
+                    <p><b>Coordenadas</b></p>
+                    <p id="coordenadas"></p>
+                    <!--Se muestra de forma dinámica-->
+                  </li>
+                  <li class="list-group-item" style="display: flex; gap:20px">
+                    <p><b>Temperatura</b></p>
+                    <p id="temp"></p>
+        
+                  </li>
+                  <li class="list-group-item" style="display: flex; gap:20px">
+                    <p><b>Presión</b></p>
+                    <p id="pressure"></p>
+        
+                  </li>
+                  <li class="list-group-item" style="display: flex; gap:20px">
+                    <p><b>Humedad</b></p>
+                    <p id="humidity"></p>
+        
+                  </li>
+                </ul>
+                
+              </div>
 
-         </div>
-     </div>
- </div>
+                </div>
+            </div>
+        </div>
 
-    <footer> © Margie Bocanegra Agudelo</footer>
-    <!--Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <!--SweetAlert2-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!--JavaScript-->
-    <script src="js/app.js" type="module"></script>
+        <footer> © Margie Bocanegra Agudelo</footer>
+        <!--Bootstrap-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <!--SweetAlert2-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--JavaScript-->
+        <script src="js/app.js" type="module"></script>
 </body>
+
 </html>

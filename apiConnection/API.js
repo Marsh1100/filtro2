@@ -1,7 +1,22 @@
 //API ESTADO ATMÓSFERICO
-const appId='961ba900fa9486fe75a948a5579b0891';
-//const urlClima = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appId}`;
 
+async function fetchData(lat, lon) {
+    try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&appid=961ba900fa9486fe75a948a5579b0891`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw 'Error al obtener los datos';
+    }
+  }
+ export async function displayData(lat, lon) {
+    try {
+      const data = await fetchData(lat, lon);
+      return data
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 //API JSON-SERVE
 const urlDep = "http://localhost:3000/Departamento";
