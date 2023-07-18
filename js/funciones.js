@@ -21,7 +21,7 @@ export async function renderDep(){
                             <button data-dep="${id}"  data-posicion="${index}"  "type="button" class="addDep bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></button>
                         </td>
                         <td>
-                            <button  data-dep="${id}" data-bs-target="#p${id}" type="button" class="bi bi-eye" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"></button>
+                            <button  data-dep="${id}" data-bs-target="#p${id}" type="button" class="bi bi-eye" data-posicion="${index}"data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"></button>
                         </td>
                         <td>
                             <button data-dep="${id}" type="button" class="btn btn-warning bi bi-pencil-square" data-posicion="${index}"></button>
@@ -33,6 +33,7 @@ export async function renderDep(){
                     <tr>
                         <td colspan="5" style="padding: 0;">
                             <div class="collapse" id="p${id}">
+                                <p class="h3" id="d${id}" ></p> 
                                 <div class="cardCiudades" id="c${id}">
                                 <!--Se añade de forma dinámica-->
                                 </div>
@@ -71,26 +72,30 @@ export function  gestionDep(e){
 
 //2 FUNCIONES DE CIUDADES Read-Create-Delete
 //2.1 Render CIUDADES
-async function renderCiudades(idDep){
+async function renderCiudades(idDep,dep){
 
     //Obtener solo las ciudades de una ciudad específica
     let listaCiudadesFilter = await getCiudadesFilter(idDep);
     const $cartsCiudad = document.getElementById(`c${idDep}`);
-    $cartsCiudad.innerHTML = " "; //Se deja vacío
+    $cartsCiudad.innerHTML = ""; //Se deja vacío
 
-
+    document.getElementById(`d${idDep}`).textContent = dep;
     listaCiudadesFilter.forEach(ciudad=>{
         const {id,nomCiudad, imagen} =ciudad;
-        
-        let html = `<div class="card" style="width: 18rem;">
-                            <img src="${imagen}" class="card-img-top" alt="imagen.jpg">
-                            <div class="card-body">
-                            <p class="card-text"><b>${nomCiudad}</b></p>
-                            <div>
-                                <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}" </button>
-                            </div>
-                            </div>
-                        </div>`;
+         
+    let html =   `
+                    <div class="card" style="width: 18rem;">
+                        <img src="${imagen}" class="card-img-top" alt="imagen.jpg">
+                        <div class="card-body">
+                        <p class="card-text"><b>${nomCiudad}</b></p>
+                        <div class="btnsCiudad">
+                            
+                            <button type="button" data-ciudad="${id}"class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalClima">Clima</button>
+
+                            <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}" </button>
+                        </div>
+                        </div>
+                    </div>`;
         $cartsCiudad.insertAdjacentHTML('beforeend', html)
         
     });
@@ -104,17 +109,21 @@ export async function agregarCiudad(e){
     let nomCiudad = $modalNomCiudad.value;
     let departamentoId = Number($modalIdDep.value);
     let imagen = $modalImg.value;
-    let coorddepartamentoIdenadas = {"lat": $modalLatitud, "lon": $modalLongitud}
     //Objeto Ciudad
     let nuevaCiudad = {
         id,
         nomCiudad,
         departamentoId,
         imagen,
-        coorddepartamentoIdenadas
+        coorddepartamentoIdenadas: {"lat": $modalLatitud.value, "lon": $modalLongitud.value}
     }
    await newCiudad(nuevaCiudad);
 
+}
+
+//3.Funcionalidad de los Nav
+export function inicio(){
+    colapsarPuntos()
 }
 
 //AddEventListener de botones de la tabla
@@ -127,16 +136,20 @@ export async function seleccionTabla(e){
         let posicion = parseInt(e.target.dataset.posicion)*5;
         editarDep(idDep,posicion)
     }else if(clase.includes("delete-dep")){
-        //Confirmar delete
 
         //1.3 DELETE departamento
-        deleteDep(idDep);
+       let ciudades =  await getCiudadesFilter(idDep)
+        console.log(ciudades)
+        deleteDep(idDep,ciudades);
 
     }else if(clase.includes("bi-plus-square")){
         let posicion = parseInt(e.target.dataset.posicion)*5;    
         formularioCiudad(idDep,posicion);
     }else if(clase.includes("bi-eye")){
-        renderCiudades(idDep);
+        let posicion = parseInt(e.target.dataset.posicion)*5;
+        const $tdTable = document.getElementsByTagName("td");
+        let dep =$tdTable[posicion].innerHTML;
+        renderCiudades(idDep, dep);
     //2.3 DELETE Ciudad
     }else if(clase.includes("delete-ciudad")){
         let idCiudad = parseInt(e.target.id);
@@ -171,3 +184,5 @@ function colapsarPuntos(){
         listClass[i].className = "collapse";
     }
 }
+
+

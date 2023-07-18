@@ -9,15 +9,7 @@
       "nomDepartamento": "Cundinamarca"
     },
     {
-      "id": 3,
-      "nomDepartamento": "Cesar"
-    },
-    {
-      "id": 1689626833840,
-      "nomDepartamento": "Bolívar"
-    },
-    {
-      "id": 1689627855508,
+      "id": 1689642265053,
       "nomDepartamento": "Atlántico"
     }
   ],
@@ -63,23 +55,23 @@
       }
     },
     {
-      "id": 5,
-      "nomCiudad": "Valledupar",
-      "departamentoId": 2,
-      "imagen": "https://blog.chapkadirect.es/wp-content/uploads/2022/03/ciudades-colombia-importantes.jpg",
-      "coordenadas": {
-        "lat": 4,
-        "lon": 72
+      "id": 1689642281318,
+      "nomCiudad": "Barranquilla",
+      "departamentoId": 1689642265053,
+      "imagen": "https://www.upb.edu.co/es/imagenes/img-sobrelaciudadbucaramanga-cam-1464102319822.jpg",
+      "coorddepartamentoIdenadas": {
+        "lat": "85",
+        "lon": "74"
       }
     },
     {
-      "id": 1689633734501,
-      "nomCiudad": "Cartagena",
-      "departamentoId": 1689627855508,
-      "imagen": "https://ca-times.brightspotcdn.com/dims4/default/c0610a9/2147483647/strip/true/crop/1515x1000+0+0/resize/1200x792!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fec%2F48%2F75fb9d684e1b9673520e911a8a3c%2Fun-destino-para-gozar-958578.JPG",
+      "id": 1689642303238,
+      "nomCiudad": "Sabanalarga",
+      "departamentoId": 1689642265053,
+      "imagen": "https://www.upb.edu.co/es/imagenes/img-sobrelaciudadbucaramanga-cam-1464102319822.jpg",
       "coorddepartamentoIdenadas": {
-        "lat": {},
-        "lon": {}
+        "lat": "85",
+        "lon": "45"
       }
     }
   ]

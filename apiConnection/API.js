@@ -2,6 +2,7 @@
 const appId='961ba900fa9486fe75a948a5579b0891';
 //const urlClima = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appId}`;
 
+
 //API JSON-SERVE
 const urlDep = "http://localhost:3000/Departamento";
 const urlCiudades = "http://localhost:3000/Ciudades";
@@ -37,11 +38,21 @@ export const newDep = async (dep) => {
 }
 
 // Eliminar una Departamento en la REST API - Método delete
-export const deleteDep = async (idDep) => {
+export const deleteDep = async (idDep,ciudades) => {
     try{
+        ciudades.forEach(async ciudad=>{
+            let {id} = ciudad;
+
+            await fetch(`${urlCiudades}/${id}`,{
+                method: 'DELETE'
+            })
+        });
+        
         await fetch(`${urlDep}/${idDep}`,{
             method: 'DELETE'
         })
+
+
     }catch(error){
         console.log(error);
     }

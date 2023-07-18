@@ -5,19 +5,49 @@
     box-sizing: border-box;
 }
 
+
+header{
+    height:8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#nuevo-dep{
+    padding: 15px;
+}
 nav{
-    background-color: rgb(178, 199, 227);
+    height: 6vh;
+    background-color: rgb(182, 213, 248);
+    display: flex;
+    align-items: flex-end;
+
 }
 
-h1,h2,h3{
+main{
+    width: 100%;
+    height: 80vh;
+    /*background-image: url(/img/mapa.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    background-color: aliceblue;
+    overflow-y: scroll;
+}
+
+.h3{
     text-align: center;
 }
 
+header, nav{ 
+    position: sticky;
+    top: 0;
+}
 
 /*Formulario departamento*/
 #agregar-dep{
     display: flex;
     justify-content: center;
+    padding-bottom: 25px;
+
 }
 .formDep{
     width: 40%;
@@ -31,6 +61,7 @@ h1,h2,h3{
 }
 
 
+
 /*Formulario ciudad*/
 .formCiudad{
     display: flex;
@@ -42,6 +73,7 @@ h1,h2,h3{
 }
 
 /*Ciudades*/
+
 .cardCiudades{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -50,7 +82,16 @@ h1,h2,h3{
     gap: 25px
 
 }
-
+.btnsCiudad{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+.delete-ciudad{
+    width: 50px;
+}
 
 @media (max-width: 1285px) {
     /* … */
@@ -62,7 +103,6 @@ h1,h2,h3{
         gap: 20px;
     }
 }
-
 @media (max-width: 975px) {
     /* … */
     .cardCiudades{
@@ -73,6 +113,24 @@ h1,h2,h3{
         gap: 20px;
     }
 }
+@media (max-width: 685px) {
+    /* … */
+    .formDep{
+        width: 60%;
+        display:flex ;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 450px) {
+    /* … */
+    .formDep{
+        width: 90%;
+        display:flex ;
+        gap: 25px;
+    }
+}
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -92,4 +150,12 @@ background: #888;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 background: #555; 
+}
+
+footer{
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
