@@ -82,7 +82,6 @@ async function renderCiudades(idDep,dep){
     document.getElementById(`d${idDep}`).textContent = dep;
     listaCiudadesFilter.forEach(ciudad=>{
         const {id,nomCiudad, imagen,coordenadas} =ciudad;
-        console.log(coordenadas.lat)
          let html =   `
                     <div class="card" style="width: 18rem;">
                         <img src="${imagen}" class="card-img-top" alt="imagen.jpg">
@@ -90,7 +89,7 @@ async function renderCiudades(idDep,dep){
                         <p class="card-text"><b>${nomCiudad}</b></p>
                         <div class="btnsCiudad">
                             
-                            <button type="button" data-lat="${coordenadas}" data-lon="${coordenadas.lon}" class="btn btn-warning clima" data-bs-toggle="modal" data-bs-target="#modalClima">Clima</button>
+                            <button type="button" data-lat="" data-lon="" class="btn btn-warning clima" data-bs-toggle="modal" data-bs-target="#modalClima">Clima</button>
 
                             <button type="button" class="btn btn-danger bi bi-trash delete-ciudad" id="${id}" data-dep="${idDep}" </button>
                         </div>
